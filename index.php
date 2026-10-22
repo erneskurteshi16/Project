@@ -6,6 +6,7 @@
     $stmt=$pdo->query($sql);
     $movies=$stmt->fetchAll();
     ?>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +68,7 @@
             <?php } ?>
     </div>
 </section>
+
 
 <footer>
     <p>2026 Movie Zone | Projekti</p>
