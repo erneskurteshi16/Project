@@ -1,53 +1,65 @@
-<?php 
-session_start(); 
-require "config.php"; 
+<?php $message='' ?>
 
-$message = ""; 
+<!DOCTYPE html>
+ <html lang="sq">
+     <head>
+         <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+          <title>Register - MovieZone</title> 
+          <link rel="stylesheet" href="style.css"> 
+        </head> 
+        <body> 
+            <header> 
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                <h2>MovieZone</h2> 
+        <nav> <a href="index.php">Home</a>
+         <a href="register.php">Register</a>
+          <a href="login.php">Sign In</a> 
+        </nav>
+     </header> 
 
-     $name = trim($_POST["name"] ?? "");
-    $email = trim($_POST["email"] ?? ""); 
-    $password = $_POST["password"] ?? ""; 
+     <div class="form-container">
 
-    if (
-    $name !== "" && 
-    filter_var($email, FILTER_VALIDATE_EMAIL) && 
-    strlen($password) >= 8 
-    ) {
+         <h1>Create Account</h1> 
+         <p>Regjistrohu në MovieZone.</p>
 
-       $check = $pdo->prepare(
-        "SELECT id FROM users WHERE email = ?" 
-       );
+          <?php if ($message ==""): ?> 
+ 
+            <?= htmlspecialchars($message) ?> 
+        </p>
+             <?php endif; ?>
 
-        $check->execute([$email]);
+              <form method="POST" action="register_logic.php">
 
-           if ($check->fetch()) { 
-           $message = "Ky email ekziston tashmë!";
+                <label>Emri i plotë</label> 
+                <input 
+                type="text"
+                name="name"
+                 required
+                  >
 
-        } else { 
-             $hashedPassword = password_hash(
-             $password,
-             PASSWORD_DEFAULT 
-             ); 
+                  <label>Email</label> 
+                  <input 
+                  type="email" 
+                  name="email" 
+                  required 
+                  > 
 
-              $sql = "INSERT INTO users 
-              (name, email, password) 
-              VALUES (?, ?, ?)"; 
+                  <label>Fjalekalimi</label>
+                  <input
+                  type="password"
+                  name="password"
+                  minlength="8"
+                  required
+                  >
 
-              $stmt = $pdo->prepare($sql); 
+                  <button type="submit">Register</button>
 
-              $stmt->execute([ 
-               $name,
-               $email,
-               $hashedPassword
-            ]);
-               header("Location: login.php?registered=1");
-               exit;
-        }
-    }else{
-        $message="Ploteso te dhenat sakte.Fjalekalimi duhet te kete se paku 8 karaktere.";
+              </form>
 
-    }
-}
-?>
+              <p>Ke llogari? <a href="login.php">Sign In</a></p>
+
+     </div>
+
+        </body>
+ </html>

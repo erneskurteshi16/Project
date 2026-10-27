@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     }
+body {
+    background: #0b0d14;
+    color: white;
+    font-family: Arial, sans-serif;
+} 
+
+header { 
+    background: #141824;
+    padding: 20px 6%; display: flex;
+    justify-content: space-between;
+    align-items: center; flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h2 { 
+    color: #ff4d67;
+}
+
+nav { 
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a { 
+    color: white;
+    text-decoration: none;
+} 
+
+nav a:hover {
+    color: #ff4d67;
+} 
+
+.hero { 
+    text-align: center;
+    padding: 75px 20px;
+    background: linear-gradient( 120deg, #1b2030, #3b1424 );
+}
+
+.hero h1 {
+    font-size: 42px; margin-bottom: 15px;
+} 
+
+.hero p { 
+    color: #d0d0d0;
+} 
+
+.movies { 
+    padding: 40px 6%;
+}
+
+.movies h2 {
+    margin-bottom: 25px;
+}
+
+.movie-container { 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.movie-card { 
+    background: #171b27;
+    border-radius:12px;
+    overflow: hidden; 
+    padding-bottom: 15px; 
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-card img { 
+    width: 100%; height: 300px;
+    object-fit: cover;
+} 
+
+.movie-card h3, .movie-card p { 
+    margin: 12px 14px 0;
+}
+
+.movie-card p { 
+    color: #b8bdca;
+    font-size: 14px;
+} 
+
+.form-container { 
+    width: 90%;
+    max-width: 430px;
+    margin: 55px auto;
+    padding: 30px;
+    background: #171b27;
+    border-radius: 15px;
+} 
+.form-container h1 {
+     margin-bottom: 10px;
+}   
+.form-container p {
+    margin-top: 15px;
+    color: #c4c8d3;
+}
+.form-container label {
+     
+    display: block;
+    margin-top: 18px; 
+    margin-bottom: 7px;
+}
+
+.form-container input {
+     width: 100%;
+    padding: 12px; 
+    border: 1px solid #34394a; 
+    border-radius: 7px; 
+    background: #0b0d14; color: white; 
+} 
+.form-container input:focus { 
+    outline: 2px solid #ff4d67; 
+} 
+.form-container button { 
+    width: 100%; 
+    padding: 13px; 
+    margin-top: 22px; 
+    border: none; border-radius: 7px; 
+    background: #ff4d67; 
+    color: white; 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer; 
+} 
+.form-container button:hover { 
+    background: #e83b56; 
+} 
+.form-container a { 
+    color: #ff7185; 
+} 
+.message { 
+    color: #ff9aa8 !important; 
+} 
+.success { 
+    color: #8df0b4 !important; 
+} 
+footer { 
+    text-align: center; 
+    padding: 25px; 
+    color: #a5acbd; 
+    border-top: 1px solid #252938; 
+    margin-top: 40px; 
+} 
+@media (max-width: 900px) { 
+.movie-container { 
+    grid-template-columns: repeat(2, 1fr); 
+} 
+} 
+@media (max-width: 500px) {
+header { 
+    flex-direction: column; 
+    align-items: flex-start; 
+} 
+
+.hero h1 { 
+    font-size: 32px; 
+} 
+
+.movie-container { 
+    grid-template-columns: 1fr; 
+} 
+
+.movie-card img { 
+    height: 380px; 
+} 
+
+.form-container { 
+    padding: 20px;
+}
+
+.form-container { 
+    padding: 22px;
+    }
+}   
